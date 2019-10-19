@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^simplephphosting\.development [NC]
+RewriteRule ^(.*)$ - [L,R=503]
+
+Header set Access-Control-Allow-Origin "*"
