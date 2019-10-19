@@ -1,0 +1,1 @@
+/usr/bin/mysqld --user=root $MYSQLD_OPTS $_WSREP_NEW_CLUSTER $_WSREP_START_POSITION
