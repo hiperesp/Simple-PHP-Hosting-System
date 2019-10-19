@@ -1,7 +1,6 @@
 # Simple PHP Hosting System
 
-Simple PHP Hosting System é um sistema de hospedagem em PHP.\
-
+Simple PHP Hosting System é um sistema de hospedagem em PHP.
 
 ## Manual de Instalação
 
@@ -11,6 +10,10 @@ O Sistema utilizado neste manual foi o Arch Linux.
 
 > $ uname -a\
 Linux archiper 5.0.10-arch1-1-ARCH #1 SMP PREEMPT Sat Apr 27 20:06:45 UTC 2019 x86_64 GNU/Linux
+
+#### Atenção:
+
+Se você está utilizando o ArchWSL (ArchLinux via WSL), siga primeiramente a pré-instalação dedicada ao WSL <https://github.com/hiperesp/Simple-PHP-Hosting-System/blob/master/docs/WSL_INSTALL_pt_BR.md>.
 
 ### Instalação do LAMP
 

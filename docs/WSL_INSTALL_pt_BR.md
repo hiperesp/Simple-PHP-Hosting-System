@@ -1,7 +1,6 @@
 # Simple PHP Hosting System
 
-Simple PHP Hosting System é um sistema de hospedagem em PHP.\
-
+Simple PHP Hosting System é um sistema de hospedagem em PHP.
 
 ## Manual de Instalação
 
