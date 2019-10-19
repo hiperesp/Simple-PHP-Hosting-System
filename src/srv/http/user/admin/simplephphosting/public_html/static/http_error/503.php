@@ -16,7 +16,7 @@ function errorSlide(){
             <div class="slide-text">
                 <h3>Caso seja o responsável pelo website, siga os procedimentos abaixo.</h3>
                 <ol>
-                    <li>Acesse <a href="http://noisy.cloud">noisy.cloud</a> e entre com sua conta.</li>
+                    <li>Acesse <a href="http://simplephphosting.development">noisy.cloud</a> e entre com sua conta.</li>
                     <li>Vá para Hospedagem, selecione sua conta de hospedagem e clique em domínios</li>
                     <li>Clique para adicionar um domínio, preencha o domínio com <?php echo $domainToFill; ?> e salve as configurações.</li>
                 </ol>
@@ -25,7 +25,7 @@ function errorSlide(){
             </div>
             <div class="slide-options">
                 <a href="javascript:void(0)" onclick="history.back()" class="button-2 button-large">Voltar</a>
-                <a href="http://noisy.cloud/" class="button-1 button-large">NoisyCloud</a>
+                <a href="http://simplephphosting.development/" class="button-1 button-large">NoisyCloud</a>
             </div>
         </div>
     </div>
