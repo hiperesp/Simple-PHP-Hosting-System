@@ -18,7 +18,7 @@ function errorSlide(){
             </div>
             <div class="slide-options">
                 <a href="javascript:void(0)" onclick="history.back()" class="button-2 button-large">Voltar</a>
-                <a href="http://noisy.cloud/" class="button-1 button-large">NoisyCloud</a>
+                <a href="http://simplephphosting.development/" class="button-1 button-large">NoisyCloud</a>
             </div>
         </div>
     </div>
