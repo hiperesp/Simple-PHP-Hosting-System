@@ -5,7 +5,7 @@ $action = @$_POST['action'];
 $user_name = @$_POST['user_name'];
 $user_email = @$_POST['user_email'];
 $project_name = @$_POST['project_name'];
-$project_domain = @$_POST['user_domain'];
+$project_domain = @$_POST['project_domain'];
 $user_project_name = @$_POST['user_project_name'];
 $response = "";
 
