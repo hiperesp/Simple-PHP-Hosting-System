@@ -8,18 +8,21 @@ $project_name = @$_POST['project_name'];
 $project_domain = @$_POST['project_domain'];
 $user_project_name = @$_POST['user_project_name'];
 $response = "";
+$error = true;
 
 switch($action) {
 	case "createUser":
 		$response = SimplePhpHostingUsers::createUser($user_name);
 		if($response===true){
 			$response = "Sucesso ao criar usuário";
+			$error = false;
 		}
 		break;
 	case "removeUser":
 		$response = SimplePhpHostingUsers::removeUser($user_name);
 		if($response===true){
 			$response = "Sucesso ao remover usuário";
+			$error = false;
 		}
 		break;
 	case "createProject":
@@ -27,6 +30,7 @@ switch($action) {
 		if($response===true){
 			SimplePhpHostingUsers::updateVirtualHosts($user_name, $project_name, $user_email, $project_domain);
 			$response = "Sucesso ao criar o projeto";
+			$error = false;
 		}
 		break;
 	case "removeProject":
@@ -34,6 +38,7 @@ switch($action) {
 		$response = SimplePhpHostingUsers::removeProject($user_name, $project_name);
 		if($response===true){
 			$response = "Sucesso ao remover projeto";
+			$error = false;
 		}
 		break;
 	case "updateProjectInfo":
@@ -41,6 +46,7 @@ switch($action) {
 		$response = SimplePhpHostingUsers::updateVirtualHosts($user_name, $project_name, $user_email, $project_domain);
 		if($response===true){
 			$response = "Sucesso ao atualizar as informações do projeto";
+			$error = false;
 		}
 		break;
 }
@@ -139,6 +145,10 @@ input[type=submit]:active {
 	padding: 20px;
 	width: fit-content;
 	margin: 20px 0 0 20px;
+}
+.alert.success {
+	background-color: #00ff00;
+	box-shadow: 0 0 2em #00ff00;
 }
 .alert h1, .alert h2, .alert h3, .alert p {
 	margin: 0 5px;
@@ -257,9 +267,10 @@ input[type=submit]:active {
 		</main>
 		<div class="alert-container"></div>
 		<script>
-function addAlert(title, content){
+function addAlert(title, content, error = true){
 	let alertElement = document.createElement("div");
 	alertElement.classList.add("alert");
+	if(!error) alertElement.classList.add("success");
 	{
 		{
 			let titleElement = document.createElement("h3");
@@ -285,7 +296,7 @@ function addAlert(title, content){
 	document.querySelector(".alert-container").appendChild(alertElement);
 }
 <?php if($action===null){ ?>addAlert("Atenção:", "Aja com cuidado. Quaisquer ações realizadas aqui são irreversíveis e não possuem tela de confirmação.");<?php } ?>
-<?php if($response!="") { ?>addAlert("Atenção:", "<?php echo $response; ?>");<?php } ?>
+<?php if($response!="") { ?>addAlert("Atenção:", "<?php echo $response; ?>", <?php echo $error===true?"true":"false"; ?>);<?php } ?>
 		</script>
 	</body>
 </html>
