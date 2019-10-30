@@ -81,18 +81,6 @@ header .version {
 	text-align: right;
 	color: #aaaaaa;
 }
-.alert {
-	background-color: #ff0000;
-	border-radius: 8px;
-	color: #ffffff;
-	padding: 20px;
-}
-.alert h1, .alert h2, .alert h3, .alert p {
-	margin: 0 5px;
-}
-.alert hr {
-	background-color: #ffffff40;
-}
 main {
 	max-width: 720px;
 	padding: 20px;
@@ -137,6 +125,31 @@ input[type=submit]:hover {
 input[type=submit]:active {
 	background-color: #00a0ff;
 }
+.alert-container {
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+.alert {
+	background-color: #ff0000;
+	box-shadow: 0 0 2em #ff0000;
+	cursor: pointer;
+	border-radius: 8px;
+	color: #ffffff;
+	padding: 20px;
+	width: fit-content;
+	margin: 20px 0 0 20px;
+}
+.alert h1, .alert h2, .alert h3, .alert p {
+	margin: 0 5px;
+}
+.alert hr {
+	background-color: #ffffff40;
+}
+.alert.removing {
+	opacity: 0;
+	transition: opacity 500ms;
+}
 		</style>
 	</head>
 	<body>
@@ -144,11 +157,11 @@ input[type=submit]:active {
 			<div class="container">
 				<h1>Simple PHP Hosting - Painel Administrativo</h1>
 				<h3 class="version">Alpha 1</h3>
-				<div class="alert">
+				<!--div class="alert">
 					<h3>Atenção:</h3>
 					<hr>
 					<p>Aja com cuidado. Quaisquer ações realizadas aqui são irreversíveis e não possuem tela de confirmação.</p>
-				</div>
+				</div-->
 			</div>
 		</header>
 		<main>
@@ -242,8 +255,37 @@ input[type=submit]:active {
 				<hr>
 			</form>
 		</main>
+		<div class="alert-container"></div>
 		<script>
-<?php if($response!=""){ ?>alert("<?php echo $response; ?>");<?php } ?>
+function addAlert(title, content){
+	let alertElement = document.createElement("div");
+	alertElement.classList.add("alert");
+	{
+		{
+			let titleElement = document.createElement("h3");
+			titleElement.textContent = title;
+			alertElement.appendChild(titleElement);
+		}
+		{
+			let separator = document.createElement("hr");
+			alertElement.appendChild(separator);
+		}
+		{
+			let titleElement = document.createElement("p");
+			titleElement.textContent = content;
+			alertElement.appendChild(titleElement);
+		}
+	}
+	alertElement.addEventListener("click", function(e){
+		this.classList.add("removing");
+		setTimeout(function(element) {
+			element.remove();
+		}, 500, this);
+	});
+	document.querySelector(".alert-container").appendChild(alertElement);
+}
+<?php if($action===null){ ?>addAlert("Atenção:", "Aja com cuidado. Quaisquer ações realizadas aqui são irreversíveis e não possuem tela de confirmação.");<?php } ?>
+<?php if($response!="") { ?>addAlert("Atenção:", "<?php echo $response; ?>");<?php } ?>
 		</script>
 	</body>
 </html>
