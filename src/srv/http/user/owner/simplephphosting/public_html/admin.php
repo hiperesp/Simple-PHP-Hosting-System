@@ -134,7 +134,8 @@ input[type=submit]:active {
 .alert-container {
 	position: fixed;
 	left: 0;
-	top: 0;
+	bottom: 0;
+	padding: 10px 0 0 10px;
 }
 .alert {
 	background-color: #ff0000;
@@ -144,7 +145,7 @@ input[type=submit]:active {
 	color: #ffffff;
 	padding: 20px;
 	width: fit-content;
-	margin: 20px 0 0 20px;
+	margin: 10px;
 }
 .alert.success {
 	background-color: #00ff00;
@@ -282,9 +283,9 @@ function addAlert(title, content, error = true){
 			alertElement.appendChild(separator);
 		}
 		{
-			let titleElement = document.createElement("p");
-			titleElement.textContent = content;
-			alertElement.appendChild(titleElement);
+			let contentElement = document.createElement("p");
+			contentElement.textContent = content;
+			alertElement.appendChild(contentElement);
 		}
 	}
 	alertElement.addEventListener("click", function(e){
